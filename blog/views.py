@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpRequest
 from datetime import datetime
+from blog.models import Article
 
 
 # Create your views here.
@@ -11,6 +12,12 @@ def home(request):
         """)
 
 
+def accueil(request: HttpRequest) -> HttpResponse:
+    """Affiche tous les articles du blog"""
+    articles = Article.objects.all()
+    return render(request, 'blog/accueil.html', {'derniers articles': articles})
+
+
 def view_article(request, id_article):
     """
     Vue qui affiche un article selon son identifiant (ou ID, ici un numéro)
@@ -19,7 +26,8 @@ def view_article(request, id_article):
     """
     if id_article > 100:
         raise Http404
-    return HttpResponse("Vous avez demandé l'article n° {0}".format(id_article))
+    article = Article.objects.get(id=id_article)
+    return render(request, 'blog/afficher_article.html', {'article': article})
 
 
 def list_articles(request: HttpRequest, month: int, year: int) -> HttpResponse:
