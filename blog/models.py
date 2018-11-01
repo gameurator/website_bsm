@@ -13,7 +13,6 @@ class Article(models.Model):
         verbose_name = "article"
         ordering = ['date']
 
-
     def __str__(self):
         """
         Cette méthode que nous définirons dans tous les modèles nous permettra de reconnaître facilement les différents
