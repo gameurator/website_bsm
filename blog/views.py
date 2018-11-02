@@ -15,7 +15,7 @@ def home(request):
 def accueil(request: HttpRequest) -> HttpResponse:
     """Affiche tous les articles du blog"""
     articles = Article.objects.all()
-    return render(request, 'blog/accueil.html', {'derniers articles': articles})
+    return render(request, 'blog/accueil.html', {"tous_articles":articles})
 
 
 def view_article(request, id_article):
