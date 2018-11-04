@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpRequest
 from datetime import datetime
 from blog.models import Article
+from .forms import ContactForm, ArticleForm
 
 
 # Create your views here.
@@ -15,10 +16,10 @@ def home(request):
 def accueil(request: HttpRequest) -> HttpResponse:
     """Affiche tous les articles du blog"""
     articles = Article.objects.all()
-    return render(request, 'blog/accueil.html', {"tous_articles":articles})
+    return render(request, 'blog/accueil.html', {"tous_articles": articles})
 
 
-def view_article(request, id_article):
+def view_article(request, id_article, slug):
     """
     Vue qui affiche un article selon son identifiant (ou ID, ici un numéro)
     Son ID est le second paramètre de la fonction (pour rappel, le premier
@@ -26,8 +27,29 @@ def view_article(request, id_article):
     """
     if id_article > 100:
         raise Http404
-    article = Article.objects.get(id=id_article)
+    try:
+        article = Article.objects.get(id=id_article, slug=slug)
+    except Article.DoesNotExist:
+        raise Http404
     return render(request, 'blog/afficher_article.html', {'article': article})
+
+
+def form_article(request):
+    form = ArticleForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return render(request, 'blog/article_formulaire.html', locals())
+
+
+def contact(request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        sujet = form.cleaned_data['sujet']
+        message = form.cleaned_data['message']
+        envoyeur = form.cleaned_data['envoyeur']
+        renvoi = form.cleaned_data['renvoi']
+        envoi = True
+    return render(request, 'blog/contact.html', locals())
 
 
 def list_articles(request: HttpRequest, month: int, year: int) -> HttpResponse:

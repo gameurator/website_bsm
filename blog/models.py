@@ -4,11 +4,12 @@ from django.utils import timezone
 
 # Create your models here.
 class Article(models.Model):
-    titre = models.CharField(max_length=100)
-    auteur = models.CharField(max_length=42)
-    contenu = models.TextField(null=True)
+    titre = models.CharField(max_length=100, verbose_name="titre")
+    slug = models.SlugField(max_length=100)
+    auteur = models.CharField(max_length=42, verbose_name="auteur")
+    contenu = models.TextField(null=True, verbose_name="contenu")
     date = models.DateTimeField(default=timezone.now, verbose_name="Date de parution")
-    categorie = models.ForeignKey('Categorie', on_delete=models.CASCADE)
+    categorie = models.ForeignKey('Categorie', on_delete=models.CASCADE, verbose_name="categorie")
 
     class Meta:
         verbose_name = "article"

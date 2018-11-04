@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for url in urls %}
+        <div class="MiniURL">
+            {{ url.url }} via <a href="{% url 'redirect_url' code=url.code %}">
+            {{ request.get_host }}{% url 'redirect_url' url.code %}</a>
+            dont {{ url.count_access }} accès.
+        </div>
+    {% empty %}
+        <p>Aucune mini URL actives.</p>
+    {% endfor %}
+{% endblock %}
