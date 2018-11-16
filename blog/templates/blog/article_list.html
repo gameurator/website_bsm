@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <li><a href="{% url 'home' %}">Accueil</a>
+    {% for category in categories %}
+        <a href="{% url 'blog_categorie' id=category.id %}">{{ category.nom }}</a>
+    {% endfor %}
+    </li>
+    {% for article in object_list %}
+        <div class="article">
+            <h3>{{ article.titre }}</h3>
+            <p>{{ article.contenu|truncatewords_html:80 }}</p>
+            <p><a href="{% url 'afficher_article' id_article=article.id slug=article.slug %}">Lire la suite</a>
+        </div>
+    {% empty %}
+        <p>Aucun article.</p>
+    {% endfor %}
+    {% if is_paginated %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Précédente</a>
+            {% endif %}
+            {% if page_obj.has_previous and page_obj.has_next %}
+                -
+            {% endif %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Suivante</a>
+            {% endif %}
+        <br>
+        {% for foo in paginator.page_range %}
+              <a href="?page={{ foo }}">{{ foo }}</a>
+        {% empty %}
+            Aucune page ?
+        {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

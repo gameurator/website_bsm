@@ -21,4 +21,5 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('mini_url/', include('mini_url.urls')),
     path('', include('blog.urls')),
+
 ]

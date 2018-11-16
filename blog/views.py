@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpRequest
 from datetime import datetime
-from blog.models import Article
+from blog.models import Article, Categorie
 from .forms import ContactForm, ArticleForm
+from django.views.generic import TemplateView, ListView, DetailView
 
 
 # Create your views here.
@@ -11,12 +12,6 @@ def home(request):
             <h1>Bienvenue sur mon blog !</h1>
             <p>Les crêpes bretonnes ça tue des mouettes en plein vol !</p>
         """)
-
-
-def accueil(request: HttpRequest) -> HttpResponse:
-    """Affiche tous les articles du blog"""
-    articles = Article.objects.all()
-    return render(request, 'blog/accueil.html', {"tous_articles": articles})
 
 
 def view_article(request, id_article, slug):
@@ -31,7 +26,7 @@ def view_article(request, id_article, slug):
         article = Article.objects.get(id=id_article, slug=slug)
     except Article.DoesNotExist:
         raise Http404
-    return render(request, 'blog/afficher_article.html', {'article': article})
+    return render(request, 'blog/article_detail.html', {'article': article})
 
 
 def form_article(request):
@@ -70,3 +65,31 @@ def addition(request, nombre1, nombre2):
 
     # Retourne nombre1, nombre2 et la somme des deux au tpl
     return render(request, 'blog/addition.html', locals())
+
+
+def faq(request):
+    return render(request, 'blog/faq.html', {})
+
+
+class ListArticles(ListView):
+    model = Article
+    paginate_by = 2
+
+    # queryset = Article.objects.filter(categorie_id__in=[1])
+
+    def get_queryset(self):
+        if not 'id' in self.kwargs:
+            return Article.objects.all()
+        else:
+            return Article.objects.filter(categorie__id=self.kwargs['id'])
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ListArticles, self).get_context_data(**kwargs)
+        context['categories'] = Categorie.objects.all()
+        return context
+
+
+class ReadArticle(DetailView):
+    # context_object_name = "article"
+    model = Article
+
