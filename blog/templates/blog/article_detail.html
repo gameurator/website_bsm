@@ -1,9 +1,13 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 {% block content %}
-<div class="article">
-    <h2>{{ object.titre }}</h2>
-    <h3>{{ object.auteur }}</h3>
-    <h3>{{ object.categorie.nom }}</h3>
-    <p>{{ object.contenu }}</p>
-</div>
+        <h1>{{ object.titre }} <span class="small">dans {{ object.categorie.nom }}, nombre de vues :
+        {{ object.nb_vues }}</span></h1>
+        <p class="infos">Rédigé par {{ object.auteur }}, le {{ object.date|date:"DATE_FORMAT" }}</p>
+        <div class="contenu">{{ object.contenu|linebreaks }}</div>
+{#    <div class="article">#}
+{#        <h2>{{ object.titre }}</h2>#}
+{#        <h3>{{ object.auteur }}</h3>#}
+{#        <h3>{{ object.categorie.nom }}</h3>#}
+{#        <p>{{ object.contenu }}</p>#}
+{#    </div>#}
 {% endblock %}

@@ -10,6 +10,7 @@ class Article(models.Model):
     contenu = models.TextField(null=True, verbose_name="contenu")
     date = models.DateTimeField(default=timezone.now, verbose_name="Date de parution")
     categorie = models.ForeignKey('Categorie', on_delete=models.CASCADE, verbose_name="categorie")
+    nb_vues = models.IntegerField(verbose_name="nb_vues")
 
     class Meta:
         verbose_name = "article"

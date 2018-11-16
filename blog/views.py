@@ -1,9 +1,12 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse, Http404, HttpRequest
 from datetime import datetime
+
+from django.http import HttpResponse, Http404, HttpRequest
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse_lazy
+
 from blog.models import Article, Categorie
 from .forms import ContactForm, ArticleForm
-from django.views.generic import TemplateView, ListView, DetailView
 
 
 # Create your views here.
@@ -92,4 +95,11 @@ class ListArticles(ListView):
 class ReadArticle(DetailView):
     # context_object_name = "article"
     model = Article
+    def get_object(self, queryset=None):
+        article=super(ReadArticle,self).get_object()
+        article.nb_vues+=1
+        article.save()
+        return article
 
+class URLCreate(CreateView):
+    model =
