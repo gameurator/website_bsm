@@ -3,6 +3,8 @@ from .models import MiniURL
 from .forms import MiniURLForm
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
+from django.urls import resolvers
+
 
 # Create your views here.
 def view_urls(request):
@@ -29,8 +31,10 @@ def redirect_url(request, code):
     mini.save()
     return redirect(mini.url, permanent=True)
 
+
 class URLCreate(CreateView):
     model = MiniURL
     form_class = MiniURLForm
     success_url = reverse_lazy(view_urls)
-
+    # template_name = 'mini_url/miniurl_create_form.html'
+    # fields = ['url', 'pseudo']

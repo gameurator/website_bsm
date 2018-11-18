@@ -102,6 +102,6 @@ class ReadArticle(DetailView):
         article.save()
         return article
 
-class ArticleCreate(CreateView):
-    model = Article
-    form_class = ArticleForm
+# class ArticleCreate(CreateView):
+#     model = Article
+#     form_class = ArticleForm

@@ -22,6 +22,6 @@ urlpatterns = [
     path('', views.view_urls, name='url_list'),
     # path('url-formulaire/', views.form_mini_url, name='form_url'),
     path(r'^(?P<code>\w{6})/$', views.redirect_url, name='redirect_url'),
-    url(r'^nouveau$', views.CreateView.as_view(), name='url_new'),
+    url(r'^nouveau/$', views.URLCreate.as_view(), name='url_new'),
 
 ]
