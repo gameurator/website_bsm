@@ -36,7 +36,7 @@ def form_article(request):
     form = ArticleForm(request.POST or None)
     if form.is_valid():
         form.save()
-    return render(request, 'blog/article_formulaire.html', locals())
+    return render(request, 'blog/article_create_form.html', locals())
 
 
 def contact(request):
@@ -95,11 +95,13 @@ class ListArticles(ListView):
 class ReadArticle(DetailView):
     # context_object_name = "article"
     model = Article
+
     def get_object(self, queryset=None):
-        article=super(ReadArticle,self).get_object()
-        article.nb_vues+=1
+        article = super(ReadArticle, self).get_object()
+        article.nb_vues += 1
         article.save()
         return article
 
-class URLCreate(CreateView):
-    model =
+class ArticleCreate(CreateView):
+    model = Article
+    form_class = ArticleForm

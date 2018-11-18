@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import MiniURL
 from .forms import MiniURLForm
-
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def view_urls(request):
@@ -27,3 +28,6 @@ def redirect_url(request, code):
     mini.count_access += 1
     mini.save()
     return redirect(mini.url, permanent=True)
+
+class URLCreate(CreateView):
+    model = MiniURL
