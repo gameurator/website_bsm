@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('', views.view_urls, name='accueil'),
-    path('url-formulaire/', views.form_mini_url, name='form_url'),
+    path('', views.view_urls, name='url_list'),
+    # path('url-formulaire/', views.form_mini_url, name='form_url'),
     path(r'^(?P<code>\w{6})/$', views.redirect_url, name='redirect_url'),
+    url(r'^nouveau$', views.CreateView.as_view(), name='url_new'),
+
 ]

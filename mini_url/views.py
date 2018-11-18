@@ -31,3 +31,6 @@ def redirect_url(request, code):
 
 class URLCreate(CreateView):
     model = MiniURL
+    form_class = MiniURLForm
+    success_url = reverse_lazy(view_urls)
+
