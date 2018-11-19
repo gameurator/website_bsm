@@ -2,7 +2,7 @@
 {% block content %}
     <form action="{% url "url_new" %}" method="post">
         {% csrf_token %}
-        {{ object.as_ul }}
-        <input type="submit" value="Save"/>
+        {{ form.as_ul }}
+        <input type="submit" value="Submit"/>
     </form>
 {% endblock %}

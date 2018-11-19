@@ -5,8 +5,10 @@
             {{ url.url }} via <a href="{% url 'redirect_url' code=url.code %}">
             {{ request.get_host }}{% url 'redirect_url' url.code %}</a>
             dont {{ url.count_access }} accès.
+            <p><a href="{% url 'url_update' code=url.code %}">Editer</a>
         </div>
     {% empty %}
         <p>Aucune mini URL actives.</p>
     {% endfor %}
+    <p><a href="{% url 'url_new' %}">Créer une redirection</a>
 {% endblock %}

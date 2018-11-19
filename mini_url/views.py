@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import MiniURL
 from .forms import MiniURLForm
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView, DeleteView
+from django.contrib import messages
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
 from django.urls import resolvers
 
 
@@ -36,5 +38,24 @@ class URLCreate(CreateView):
     model = MiniURL
     form_class = MiniURLForm
     success_url = reverse_lazy(view_urls)
-    # template_name = 'mini_url/miniurl_create_form.html'
+    # template_name = 'mini_url/miniurl_form.html'
     # fields = ['url', 'pseudo']
+
+
+class URLUpdate(UpdateView):
+    model = MiniURL
+    form_class = MiniURLForm
+    success_url = reverse_lazy(view_urls)
+    template_name = 'mini_url/miniurl_update_form.html'
+
+    def get_object(self, queryset=None):
+        code = self.kwargs.get('code', None)
+        return get_object_or_404(MiniURL, code=code)
+
+    def form_valid(self, form):
+        self.object = form.save()
+        messages.success(self.request, "Votre URL a été mise à jour avec succès !")
+        return HttpResponseRedirect(self.get_success_url())
+
+class URLDelete(DeleteView):
+    pass
