@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ba22d7d-88eb-46a0-92e3-43e10e6ec3f5" name="Default Changelist" comment="Trying CreateView">
-      <change afterPath="$PROJECT_DIR$/mini_url/templates/mini_url/miniurl_update_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_url/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_url/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_url/templates/mini_url/miniurl_create_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/mini_url/templates/mini_url/miniurl_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_url/templates/mini_url/view_urls.html" beforeDir="false" afterPath="$PROJECT_DIR$/mini_url/templates/mini_url/view_urls.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_url/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_url/urls.py" afterDir="false" />
+    <list default="true" id="9ba22d7d-88eb-46a0-92e3-43e10e6ec3f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/mini_url/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_url/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,13 +88,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="92" />
-          <entry key="py" value="463" />
+          <entry key="py" value="505" />
+          <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="92" />
-          <entry key="Python" value="463" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="Python" value="505" />
         </counts>
       </usages-collector>
     </session>
@@ -111,14 +106,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mini_url/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="771">
+              <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
-                <marker date="1542655320159" expanded="true" signature="949:950" ph="..." />
-                <marker date="1542655320159" expanded="true" signature="1165:1170" ph="..." />
-                <marker date="1542655320159" expanded="true" signature="1371:1376" ph="..." />
-                <marker date="1542655320159" expanded="true" signature="1899:1904" ph="..." />
+                <marker date="1542655539012" expanded="true" signature="949:950" ph="..." />
+                <marker date="1542655539012" expanded="true" signature="1165:1170" ph="..." />
+                <marker date="1542655539012" expanded="true" signature="1371:1376" ph="..." />
+                <marker date="1542655539012" expanded="true" signature="1899:1904" ph="..." />
               </folding>
             </state>
           </provider>
@@ -379,12 +374,12 @@
       <option name="project" value="LOCAL" />
       <updated>1542566847424</updated>
     </task>
-    <task id="LOCAL-00002" summary="DetailedView Finished">
-      <created>1542407424099</created>
+    <task id="LOCAL-00002" summary="Trying DeleteView">
+      <created>1542655387710</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1542407424099</updated>
+      <updated>1542655387711</updated>
     </task>
     <task id="LOCAL-00003" summary="DetailedView Finished">
       <created>1542543441239</created>
@@ -400,19 +395,19 @@
       <option name="project" value="LOCAL" />
       <updated>1542552193061</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59084404" visible="true" weight="0.12526652" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59084404" visible="true" weight="0.12526652" />
       <window_info id="Structure" order="1" sideWeight="0.40915594" side_tool="true" visible="true" weight="0.12526652" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32925472" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.2224694" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.2224694" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -439,7 +434,8 @@
     <MESSAGE value="ListView operational&#10;&#10;starting DetailedView" />
     <MESSAGE value="DetailedView Finished" />
     <MESSAGE value="Trying CreateView" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying CreateView" />
+    <MESSAGE value="Trying DeleteView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying DeleteView" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/blog/urls.py">
@@ -554,14 +550,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mini_url/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="771">
+          <caret line="52" column="39" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
-            <marker date="1542655320159" expanded="true" signature="949:950" ph="..." />
-            <marker date="1542655320159" expanded="true" signature="1165:1170" ph="..." />
-            <marker date="1542655320159" expanded="true" signature="1371:1376" ph="..." />
-            <marker date="1542655320159" expanded="true" signature="1899:1904" ph="..." />
+            <marker date="1542655539012" expanded="true" signature="949:950" ph="..." />
+            <marker date="1542655539012" expanded="true" signature="1165:1170" ph="..." />
+            <marker date="1542655539012" expanded="true" signature="1371:1376" ph="..." />
+            <marker date="1542655539012" expanded="true" signature="1899:1904" ph="..." />
           </folding>
         </state>
       </provider>
