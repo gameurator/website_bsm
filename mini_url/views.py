@@ -58,4 +58,6 @@ class URLUpdate(UpdateView):
         return HttpResponseRedirect(self.get_success_url())
 
 class URLDelete(DeleteView):
-    pass
+    model = MiniURL
+    success_url = reverse_lazy(view_urls)
+    template_name = 'mini_url/supprimer.html'
